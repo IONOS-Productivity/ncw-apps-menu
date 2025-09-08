@@ -1,5 +1,5 @@
 {
-	"name": "nextcloud/app_template",
+	"name": "nextcloud/ncw_apps_menu",
 	"description": "An example description",
 	"license": "AGPL-3.0-or-later",
 	"authors": [

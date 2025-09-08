@@ -1,6 +1,6 @@
 <template>
 	<NcAppContent>
-		<div id="app_template">
+		<div id="ncw_apps_menu">
 			<h1>Hello world!</h1>
 		</div>
 	</NcAppContent>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#app_template {
+#ncw_apps_menu {
 	display: flex;
 	justify-content: center;
 	margin: 16px;
