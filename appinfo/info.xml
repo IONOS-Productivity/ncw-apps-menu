@@ -14,13 +14,4 @@
 	<dependencies>
 		<nextcloud min-version="30" max-version="32"/>
 	</dependencies>
-	<navigations>
-		<navigation>
-			<id>ncw_apps_menu</id>
-			<name>App Template</name>
-			<route>ncw_apps_menu.page.index</route>
-			<icon>app.svg</icon>
-			<type>link</type>
-		</navigation>
-	</navigations>
 </info>
