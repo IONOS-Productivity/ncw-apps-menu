@@ -1,5 +1,9 @@
+/**
+ * SPDX-FileCopyrightText: 2025 STRATO GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-const waitContainerObserver = (selector) => {
+const waitContainerObserver = (selector: string): Promise<Element> => {
 	return new Promise((resolve) => {
 		const existing = document.querySelector(selector)
 		if (existing) {
