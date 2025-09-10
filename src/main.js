@@ -1,10 +1,14 @@
+/**
+ * SPDX-FileCopyrightText: 2025 STRATO GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 import Vue from 'vue'
-import App from './App.vue'
+import AppsMenu from './lib/view/AppsMenu.vue'
 import { waitContainerObserver } from './lib/dom.js'
 
 Vue.mixin({methods: {t, n}})
 
-const View = Vue.extend(App)
+const View = Vue.extend(AppsMenu)
 
 waitContainerObserver('#header .app-menu').then((container) => {
 	console.log('foo', container);
