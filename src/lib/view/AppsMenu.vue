@@ -12,6 +12,12 @@
 			<Apps class="ncwappsmenu__trigger-icon" :size="32" />
 		</template>
 		<div class="ncwappsmenu__menu">
+			<ul class="account-menu__list">
+				<AccountMenuProfileEntry :id="profileEntry.id"
+										 :name="profileEntry.name"
+										 :href="profileEntry.href"
+										 :active="profileEntry.active" />
+			</ul>
 			<div class="ncwappsmenu__grid">
 				<div v-for="app in appsList"
 					 :key="app.id"
@@ -35,21 +41,79 @@
 </template>
 
 <script lang="ts">
+import { getCurrentUser } from '@nextcloud/auth'
 import type { INavigationEntry } from '../../types/navigation'
 import Vue from 'vue'
 import NcHeaderMenu from '@nextcloud/vue/dist/Components/NcHeaderMenu.js'
+import AccountMenuProfileEntry from '../components/AccountMenu/AccountMenuProfileEntry.vue'
 import Apps from 'vue-material-design-icons/Apps.vue'
 import { subscribe, unsubscribe } from '@nextcloud/event-bus'
 import { loadState } from '@nextcloud/initial-state'
 import { t } from '@nextcloud/l10n'
 
 
+interface ISettingsNavigationEntry {
+	/**
+	 * id of the entry, used as HTML ID, for example, "settings"
+	 */
+	id: string
+	/**
+	 * Label of the entry, for example, "Personal Settings"
+	 */
+	name: string
+	/**
+	 * Icon of the entry, for example, "/apps/settings/img/personal.svg"
+	 */
+	icon: string
+	/**
+	 * Type of the entry
+	 */
+	type: 'settings'|'link'|'guest'
+	/**
+	 * Link of the entry, for example, "/settings/user"
+	 */
+	href: string
+	/**
+	 * Whether the entry is active
+	 */
+	active: boolean
+	/**
+	 * Order of the entry
+	 */
+	order: number
+	/**
+	 * Number of unread pf this items
+	 */
+	unread: number
+	/**
+	 * Classes for custom styling
+	 */
+	classes: string
+}
+
 export default Vue.extend({
 	name: 'NcwAppsMenu',
 	components: {
 		NcHeaderMenu,
+		AccountMenuProfileEntry,
 		Apps,
 	},
+
+	setup() {
+		const settingsNavEntries = loadState<Record<string, ISettingsNavigationEntry>>('core', 'settingsNavEntries', {})
+		const { profile: profileEntry, ...otherEntries } = settingsNavEntries
+
+		return {
+			currentDisplayName: getCurrentUser()?.displayName ?? getCurrentUser()!.uid,
+			currentUserId: getCurrentUser()!.uid,
+
+			profileEntry,
+			otherEntries,
+
+			t,
+		}
+	},
+
 	data() {
 		const appsList = loadState<INavigationEntry[]>('core', 'apps', [])
 		return {
