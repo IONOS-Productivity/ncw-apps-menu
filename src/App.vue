@@ -1,26 +1,46 @@
 <template>
-	<NcAppContent>
-		<div id="ncw_apps_menu">
-			<h1>Hello world!</h1>
+	<NcHeaderMenu id="ncw_apps_menu"
+				  class="ncwappsmenu"
+				  :aria-label="t('core', 'Apps')"
+				  @open="handleOpen">
+		<template #trigger>
+			<Apps class="ncwappsmenu__trigger-icon" :size="20" />
+		</template>
+		<div class="ncwappsmenu__menu">
+			hello world
 		</div>
-	</NcAppContent>
+	</NcHeaderMenu>
 </template>
 
 <script>
-import NcAppContent from '@nextcloud/vue/dist/Components/NcAppContent.js'
+import NcHeaderMenu from '@nextcloud/vue/dist/Components/NcHeaderMenu.js'
+import Apps from 'vue-material-design-icons/Apps.vue'
 
 export default {
-	name: 'App',
+	name: 'NcwAppsMenu',
 	components: {
-		NcAppContent,
+		NcHeaderMenu,
+		Apps,
 	},
+	methods: {
+		async handleOpen() {
+			console.log('handleOpen')
+		},
+	}
 }
 </script>
 
 <style scoped lang="scss">
-#ncw_apps_menu {
-	display: flex;
-	justify-content: center;
-	margin: 16px;
+.ncwappsmenu {
+	&__trigger-icon {
+		color: var(--color-background-plain-text) !important;
+	}
+	&__menu {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		height: calc(50px * 6 + 2px + 26px);
+		max-height: inherit;
+	}
 }
 </style>
