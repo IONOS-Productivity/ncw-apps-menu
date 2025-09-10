@@ -10,21 +10,19 @@ import { t, n } from '@nextcloud/l10n'
 Vue.mixin({methods: {t, n}})
 
 waitContainerObserver('#header .app-menu').then((container: Element) => {
-	console.log('foo', container);
-
 	container.remove()
-
-	const mountPoint = document.createElement('div');
-	mountPoint.id = 'ncw_apps_menu-container'
-
-	const headerEnd = document.querySelector('#header .header-end')
-
-	if (headerEnd) {
-		headerEnd.appendChild(mountPoint)
-		new Vue({
-			name: 'AppsMenuRoot',
-			el: mountPoint,
-			render: h => h(AppsMenu),
-		})
-	}
 })
+
+const mountPoint = document.createElement('div');
+mountPoint.id = 'ncw_apps_menu-container'
+
+const headerEnd = document.querySelector('#header .header-end')
+
+if (headerEnd) {
+	headerEnd.appendChild(mountPoint)
+	new Vue({
+		name: 'AppsMenuRoot',
+		el: mountPoint,
+		render: h => h(AppsMenu),
+	})
+}
