@@ -36,6 +36,13 @@
 					<span class="ncwappsmenu__app-name">{{ app.name }}</span>
 				</div>
 			</div>
+			<AccountMenuEntry
+				:id="logoutEntry.id"
+				:key="logoutEntry.id"
+				:name="logoutEntry.name"
+				:href="logoutEntry.href"
+				:active="logoutEntry.active"
+				:icon="logoutEntry.icon" />
 		</div>
 	</NcHeaderMenu>
 </template>
@@ -46,6 +53,7 @@ import type { INavigationEntry } from '../../types/navigation'
 import Vue from 'vue'
 import NcHeaderMenu from '@nextcloud/vue/dist/Components/NcHeaderMenu.js'
 import AccountMenuProfileEntry from '../components/AccountMenu/AccountMenuProfileEntry.vue'
+import AccountMenuEntry from '../components/AccountMenu/AccountMenuEntry.vue'
 import Apps from 'vue-material-design-icons/Apps.vue'
 import { subscribe, unsubscribe } from '@nextcloud/event-bus'
 import { loadState } from '@nextcloud/initial-state'
@@ -96,18 +104,20 @@ export default Vue.extend({
 	components: {
 		NcHeaderMenu,
 		AccountMenuProfileEntry,
+		AccountMenuEntry,
 		Apps,
 	},
 
 	setup() {
 		const settingsNavEntries = loadState<Record<string, ISettingsNavigationEntry>>('core', 'settingsNavEntries', {})
-		const { profile: profileEntry, ...otherEntries } = settingsNavEntries
+		const { profile: profileEntry, logout: logoutEntry, ...otherEntries } = settingsNavEntries
 
 		return {
 			currentDisplayName: getCurrentUser()?.displayName ?? getCurrentUser()!.uid,
 			currentUserId: getCurrentUser()!.uid,
 
 			profileEntry,
+			logoutEntry,
 			otherEntries,
 
 			t,
@@ -117,7 +127,7 @@ export default Vue.extend({
 	data() {
 		const appsList = loadState<INavigationEntry[]>('core', 'apps', [])
 		return {
-			appsList,
+			appsList: [ ...appsList, ...appsList ],
 		}
 	},
 
