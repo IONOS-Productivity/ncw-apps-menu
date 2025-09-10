@@ -25,7 +25,14 @@
     "@nextcloud/browserslist-config": "^3.0.1",
     "@nextcloud/eslint-config": "^8.4.2",
     "@nextcloud/stylelint-config": "^3.1.0",
+    "@nextcloud/typings": "^1.9.1",
     "@nextcloud/vite-config": "^1.5.2",
-    "vite": "^7.1.4"
+    "@nextcloud/webpack-vue-config": "^6.2.0",
+    "@types/node": "^24.3.1",
+    "@vue/test-utils": "^1.3.5",
+    "@vue/tsconfig": "^0.5.1",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.4",
+    "vue-tsc": "^3.0.6"
   }
 }
