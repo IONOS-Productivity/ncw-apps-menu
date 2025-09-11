@@ -11,7 +11,9 @@
     "dev": "vite --mode development build",
     "watch": "vite --mode development build --watch",
     "lint": "eslint src",
-    "stylelint": "stylelint src/**/*.vue src/**/*.scss src/**/*.css"
+    "stylelint": "stylelint src/**/*.vue src/**/*.scss src/**/*.css",
+    "lint:fix": "eslint --ext .js,.ts,.vue src --fix",
+    "stylelint:fix": "stylelint  \"src/**/*.scss\" \"src/**/*.vue\" --fix"
   },
   "type": "module",
   "browserslist": [
