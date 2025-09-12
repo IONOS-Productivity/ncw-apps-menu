@@ -3,7 +3,7 @@
     "info": {
         "title": "ncw_apps_menu",
         "version": "0.0.1",
-        "description": "An example summary",
+        "description": "Custom apps menu for Nextcloud",
         "license": {
             "name": "agpl"
         }
