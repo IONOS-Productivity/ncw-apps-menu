@@ -1,16 +1,23 @@
 <?xml version="1.0"?>
+<!--
+	- SPDX-FileCopyrightText: 2025 STRATO GmbH
+	- SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>ncw_apps_menu</id>
-	<name>App Template</name>
-	<summary>An example summary</summary>
-	<description>An example description</description>
+	<name>NCW Apps Menu</name>
+	<summary>Custom apps menu for Nextcloud</summary>
+	<description><![CDATA[
+A customizable apps menu extension for Nextcloud that provides enhanced app navigation.
+This app allows users to access their applications in a more intuitive and efficient way.
+]]></description>
 	<version>1.0.0</version>
 	<licence>agpl</licence>
-	<author mail="example@example.com" homepage="https://example.com">Example</author>
+	<author mail="support@strato.com" homepage="https://www.strato.com">STRATO GmbH</author>
 	<namespace>NcwAppsMenu</namespace>
 	<category>customization</category>
-	<bugs>https://example.com/bugs</bugs>
+	<bugs>https://github.com/strato/ncw_apps_menu/issues</bugs>
 	<dependencies>
 		<nextcloud min-version="31" max-version="32"/>
 	</dependencies>
