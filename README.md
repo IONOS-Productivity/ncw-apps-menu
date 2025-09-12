@@ -1,25 +1,89 @@
-# App Template
+# NCW Apps Menu
 
-A template to get started with Nextcloud app development.
+A Nextcloud app that provides an enhanced apps menu interface for better navigation and app management.
 
-## Usage
+## Description
 
-- To get started easily use the [Appstore App generator](https://apps.nextcloud.com/developer/apps/generate) to
-  dynamically generate an App based on this repository with all the constants prefilled.
-- Alternatively you can use the "Use this template" button on the top of this page to create a new repository based on
-  this repository. Afterwards adjust all the necessary constants like App ID, namespace, descriptions etc.
+The NCW Apps Menu app enhances the default Nextcloud apps menu with improved functionality and user experience. It provides a more intuitive way to access and manage your Nextcloud applications.
 
-Once your app is ready follow the [instructions](https://nextcloudappstore.readthedocs.io/en/latest/developer.html) to
-upload it to the Appstore.
+## Features
 
-## Resources
+- Enhanced apps menu interface
+- Improved navigation experience
+- Better app organization and discovery
+- Seamless integration with Nextcloud's existing interface
 
-### Documentation for developers:
+## Installation
 
-- General documentation and tutorials: https://nextcloud.com/developer
-- Technical documentation: https://docs.nextcloud.com/server/latest/developer_manual
+### From Source
 
-### Help for developers:
+1. Clone this repository into your Nextcloud apps directory:
+   ```bash
+   cd nextcloud/apps
+   git clone <repository-url> ncw_apps_menu
+   ```
 
-- Official community chat: https://cloud.nextcloud.com/call/xs25tz5y
-- Official community forum: https://help.nextcloud.com/c/dev/11
+2. Install dependencies:
+   ```bash
+   cd ncw_apps_menu
+   npm install
+   composer install
+   ```
+
+3. Build the frontend:
+   ```bash
+   npm run build
+   ```
+
+4. Enable the app in your Nextcloud admin panel or via command line:
+   ```bash
+   php occ app:enable ncw_apps_menu
+   ```
+
+## Development
+
+### Prerequisites
+
+- Node.js (^22.0.0)
+- npm (^10.5.0)
+- PHP 8.1+
+- Composer
+
+### Setup
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   composer install
+   ```
+
+3. Start development mode:
+   ```bash
+   npm run dev
+   ```
+
+### Available Scripts
+
+- `npm run build` - Build for production
+- `npm run dev` - Build for development
+- `npm run watch` - Watch mode for development
+- `npm run test` - Run tests
+- `npm run lint` - Lint code
+- `npm run lint:fix` - Fix linting issues
+
+### Testing
+
+Run the test suite:
+```bash
+npm test
+```
+
+Run with coverage:
+```bash
+npm run test:coverage
+```
+
+## License
+
+This project is licensed under the AGPL-3.0-or-later license. See the [LICENSE](LICENSE) file for details.
