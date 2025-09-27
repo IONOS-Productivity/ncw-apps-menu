@@ -54,7 +54,7 @@
     "vite": "^7.1.4",
     "vue-material-design-icons": "^5.3.1",
     "vue-template-compiler": "^2.7.16",
-    "vue-tsc": "^3.0.6"
+    "vue-tsc": "^3.0.8"
   },
   "jest": {
     "preset": "ts-jest/presets/default",
