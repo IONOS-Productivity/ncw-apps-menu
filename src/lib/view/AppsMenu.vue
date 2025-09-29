@@ -143,7 +143,7 @@ $grid-image-size: 53px;
 		width: $app-icon-size;
 
 		&:hover {
-			background-color: var(--color-background-hover);
+			background-color: var(--ion-context-menu-item-background-hover);
 		}
 
 		&:focus {
@@ -169,6 +169,10 @@ $grid-image-size: 53px;
 		color: var(--color-text-light);
 		fill: var(--color-text-light);
 		filter: var(--background-invert-if-bright);
+
+		@media (prefers-color-scheme: dark) {
+			filter: none;
+		}
 	}
 
 	&__app-name {
