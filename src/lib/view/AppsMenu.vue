@@ -39,6 +39,7 @@ import type { INavigationEntry } from '../../types/navigation'
 import Vue from 'vue'
 import NcHeaderMenu from '@nextcloud/vue/dist/Components/NcHeaderMenu.js'
 import Apps from 'vue-material-design-icons/Apps.vue'
+import { logger } from '../logger.ts'
 import { subscribe, unsubscribe } from '@nextcloud/event-bus'
 import { loadState } from '@nextcloud/initial-state'
 import { t } from '@nextcloud/l10n'
@@ -66,8 +67,10 @@ export default Vue.extend({
 
 	methods: {
 		async handleOpen(): Promise<void> {
+			logger.info('Apps menu opened')
 		},
 		setApps({ apps }: { apps: INavigationEntry[]}) {
+			logger.info('Setting apps:', { apps })
 			this.appsList = apps
 		},
 		t,

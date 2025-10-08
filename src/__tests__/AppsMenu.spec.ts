@@ -7,6 +7,7 @@ import { shallowMount } from '@vue/test-utils'
 import AppsMenu from '../lib/view/AppsMenu.vue'
 import { loadState } from '@nextcloud/initial-state'
 import { subscribe, unsubscribe } from '@nextcloud/event-bus'
+import * as loggerModule from '../lib/logger.ts'
 
 // Mock the modules
 jest.mock('@nextcloud/initial-state')
@@ -120,12 +121,12 @@ describe('AppsMenu.vue', () => {
 	})
 
 	it('handles handleOpen method', async () => {
-		const consoleSpy = jest.spyOn(console, 'log').mockImplementation()
+		const loggerSpy = jest.spyOn(loggerModule.logger, 'info').mockImplementation()
 		const wrapper = shallowMount(AppsMenu)
 
 		;(wrapper.vm as any).handleOpen()
 
-		expect(consoleSpy).toHaveBeenCalledWith('Apps menu opened')
-		consoleSpy.mockRestore()
+		expect(loggerSpy).toHaveBeenCalledWith('Apps menu opened')
+		loggerSpy.mockRestore()
 	})
 })
