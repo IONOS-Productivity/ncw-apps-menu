@@ -45,7 +45,7 @@ import { loadState } from '@nextcloud/initial-state'
 import { t } from '@nextcloud/l10n'
 
 export default Vue.extend({
-	name: 'NcwAppsMenu',
+	name: 'AppsMenu',
 	components: {
 		NcHeaderMenu,
 		Apps,
