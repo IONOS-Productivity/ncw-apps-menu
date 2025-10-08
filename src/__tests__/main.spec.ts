@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+import Vue from 'vue'
 import { waitContainerObserver } from '../lib/dom'
 
 // Mock the DOM utilities
@@ -14,10 +15,10 @@ const mockVueInstance = {
 	$destroy: jest.fn(),
 }
 
-const mockVueConstructor: any = jest.fn().mockImplementation((options) => ({
+const mockVueConstructor: jest.MockedClass<typeof Vue> = jest.fn().mockImplementation((options) => ({
 	...mockVueInstance,
 	...options,
-}))
+})) as any
 mockVueConstructor.mixin = jest.fn()
 
 jest.mock('vue', () => mockVueConstructor)
@@ -59,10 +60,8 @@ describe('main.ts initialization', () => {
 	})
 
 	it('removes original apps menu successfully', async () => {
-		const mockElement = {
-			remove: jest.fn(),
-		}
-		mockWaitContainerObserver.mockResolvedValue(mockElement as any)
+		const mockElement = { remove: jest.fn() }
+		mockWaitContainerObserver.mockResolvedValue(mockElement as unknown as HTMLElement)
 
 		// Import and run the initialization
 		await import('../main')
