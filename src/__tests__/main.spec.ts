@@ -18,6 +18,7 @@ const mockVueInstance = {
 const mockVueConstructor: jest.MockedClass<typeof Vue> = jest.fn().mockImplementation((options) => ({
 	...mockVueInstance,
 	...options,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 })) as any
 mockVueConstructor.mixin = jest.fn()
 

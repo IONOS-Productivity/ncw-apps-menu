@@ -58,7 +58,7 @@ describe('AppsMenu.vue', () => {
 		const wrapper = shallowMount(AppsMenu)
 
 		expect(loadState).toHaveBeenCalledWith('core', 'apps', [])
-		expect((wrapper.vm as any).appsList).toEqual(mockApps)
+		expect((wrapper.vm as unknown as { appsList: unknown[] }).appsList).toEqual(mockApps)
 	})
 
 	it('renders app items correctly', () => {
@@ -124,6 +124,7 @@ describe('AppsMenu.vue', () => {
 		const loggerSpy = jest.spyOn(loggerModule.logger, 'info').mockImplementation()
 		const wrapper = shallowMount(AppsMenu)
 
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		;(wrapper.vm as any).handleOpen()
 
 		expect(loggerSpy).toHaveBeenCalledWith('Apps menu opened')
