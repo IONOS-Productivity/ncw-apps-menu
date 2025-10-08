@@ -4,18 +4,18 @@
 -->
 <template>
 	<NcHeaderMenu id="ncw_apps_menu"
-				  class="ncwappsmenu"
-				  is-nav
-				  :aria-label="t('core', 'Applications menu')"
-				  @open="handleOpen">
+		class="ncwappsmenu"
+		is-nav
+		:aria-label="t('core', 'Applications menu')"
+		@open="handleOpen">
 		<template #trigger>
 			<Apps class="ncwappsmenu__trigger-icon" :size="32" />
 		</template>
 		<div class="ncwappsmenu__menu">
 			<div class="ncwappsmenu__grid">
 				<div v-for="app in appsList"
-					 :key="app.id"
-					 class="ncwappsmenu__app-item">
+					:key="app.id"
+					class="ncwappsmenu__app-item">
 					<a class="ncwappsmenu__app-icon"
 						:href="app.href"
 						:title="app.name"
@@ -23,9 +23,9 @@
 						:target="app.target ? '_blank' : undefined"
 						:rel="app.target ? 'noopener noreferrer' : undefined">
 						<img :src="app.icon"
-							 :alt="app.name"
-							 :title="app.name"
-							 class="ncwappsmenu__app-image" />
+							:alt="app.name"
+							:title="app.name"
+							class="ncwappsmenu__app-image">
 					</a>
 					<span class="ncwappsmenu__app-name">{{ app.name }}</span>
 				</div>
@@ -72,8 +72,8 @@ export default Vue.extend({
 			console.log('Setting apps:', apps)
 			this.appsList = apps
 		},
-		t
-	}
+		t,
+	},
 })
 </script>
 
