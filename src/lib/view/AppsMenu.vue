@@ -66,10 +66,8 @@ export default Vue.extend({
 
 	methods: {
 		async handleOpen(): Promise<void> {
-			console.log('Apps menu opened')
 		},
 		setApps({ apps }: { apps: INavigationEntry[]}) {
-			console.log('Setting apps:', apps)
 			this.appsList = apps
 		},
 		t,
