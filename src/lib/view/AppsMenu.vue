@@ -9,7 +9,7 @@
 		:aria-label="t('core', 'Applications menu')"
 		@open="handleOpen">
 		<template #trigger>
-			<Apps class="ncwappsmenu__trigger-icon" :size="32" />
+			<Apps class="ncwappsmenu__trigger-icon" :size="24" />
 		</template>
 		<div class="ncwappsmenu__menu">
 			<div class="ncwappsmenu__grid">
@@ -84,22 +84,24 @@ $grid-gap: 0px;
 $grid-padding: 0px;
 $rows-visible: 3;
 $app-name-line-height: 18px;
-$grid-image-size: 53px;
+$grid-image-size: 35px;
 
 .ncwappsmenu {
 	&__trigger-icon {
+		width: 24px;
+		height: 24px;
 		color: var(--color-background-plain-text) !important;
 	}
 
 	// Ensure proper sizing for the menu content
 	:deep(.header-menu__content) {
-		width: 320px !important;
-		max-height: 400px;
+		width: 350px !important;
+		max-height: 600px;
 		padding: 0 !important;
 	}
 
 	&__menu {
-		padding: var(--default-grid-baseline);
+		padding: 30px 15px 30px 30px;
 		overflow: hidden;
 	}
 
@@ -107,7 +109,6 @@ $grid-image-size: 53px;
 		display: grid;
 		grid-template-columns: repeat($rows-visible, 1fr);
 		gap: $grid-gap;
-		max-height: calc(($app-icon-size + $grid-gap) * $rows-visible - $grid-gap + ($grid-padding * 2));
 		overflow-y: auto;
 		padding: $grid-padding;
 
