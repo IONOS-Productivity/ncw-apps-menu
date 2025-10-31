@@ -69,13 +69,12 @@ describe('AppsMenu.vue', () => {
 
 		// Check first app item
 		const firstApp = appItems.at(0)
-		const firstAppLink = firstApp.find('.ncwappsmenu__app-icon')
 
-		expect(firstAppLink.attributes('href')).toBe(mockApps[0].href)
-		expect(firstAppLink.attributes('title')).toBe(mockApps[0].name)
-		expect(firstAppLink.attributes('aria-current')).toBeUndefined()
-		expect(firstAppLink.attributes('target')).toBeUndefined()
-		expect(firstAppLink.attributes('rel')).toBeUndefined()
+		expect(firstApp.attributes('href')).toBe(mockApps[0].href)
+		expect(firstApp.attributes('title')).toBe(mockApps[0].name)
+		expect(firstApp.attributes('aria-current')).toBeUndefined()
+		expect(firstApp.attributes('target')).toBeUndefined()
+		expect(firstApp.attributes('rel')).toBeUndefined()
 
 		const firstAppImage = firstApp.find('.ncwappsmenu__app-image')
 		expect(firstAppImage.attributes('src')).toBe(mockApps[0].icon)
@@ -90,9 +89,8 @@ describe('AppsMenu.vue', () => {
 
 		const appItems = wrapper.findAll('.ncwappsmenu__app-item')
 		const activeApp = appItems.at(1) // calendar app is active
-		const activeAppLink = activeApp.find('.ncwappsmenu__app-icon')
 
-		expect(activeAppLink.attributes('aria-current')).toBe('page')
+		expect(activeApp.attributes('aria-current')).toBe('page')
 	})
 
 	it('handles external apps with target="_blank" correctly', () => {
@@ -100,10 +98,9 @@ describe('AppsMenu.vue', () => {
 
 		const appItems = wrapper.findAll('.ncwappsmenu__app-item')
 		const externalApp = appItems.at(2) // external site app
-		const externalAppLink = externalApp.find('.ncwappsmenu__app-icon')
 
-		expect(externalAppLink.attributes('target')).toBe('_blank')
-		expect(externalAppLink.attributes('rel')).toBe('noopener noreferrer')
+		expect(externalApp.attributes('target')).toBe('_blank')
+		expect(externalApp.attributes('rel')).toBe('noopener noreferrer')
 	})
 
 	it('subscribes to event bus on mount', () => {

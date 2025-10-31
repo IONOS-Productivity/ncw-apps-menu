@@ -13,22 +13,22 @@
 		</template>
 		<div class="ncwappsmenu__menu">
 			<div class="ncwappsmenu__grid">
-				<div v-for="app in appsList"
+				<a v-for="app in appsList"
 					:key="app.id"
-					class="ncwappsmenu__app-item">
-					<a class="ncwappsmenu__app-icon"
-						:href="app.href"
-						:title="app.name"
-						:aria-current="app.active ? 'page' : false"
-						:target="app.target ? '_blank' : undefined"
-						:rel="app.target ? 'noopener noreferrer' : undefined">
+					class="ncwappsmenu__app-item"
+					:href="app.href"
+					:title="app.name"
+					:aria-current="app.active ? 'page' : false"
+					:target="app.target ? '_blank' : undefined"
+					:rel="app.target ? 'noopener noreferrer' : undefined">
+					<div class="ncwappsmenu__app-icon">
 						<img :src="app.icon"
 							:alt="app.name"
 							:title="app.name"
 							class="ncwappsmenu__app-image">
-					</a>
+					</div>
 					<span class="ncwappsmenu__app-name">{{ app.name }}</span>
-				</div>
+				</a>
 			</div>
 		</div>
 	</NcHeaderMenu>
@@ -143,14 +143,15 @@ $grid-image-size: 35px;
 		text-decoration: none;
 		height: $app-icon-size;
 		width: $app-icon-size;
+		color: inherit;
 
 		&:hover {
 			background-color: var(--ion-context-menu-item-background-hover);
 		}
 
 		&:focus {
-			outline: 2px solid var(--color-primary-element);
-			outline-offset: 2px;
+			outline: 1px solid var(--color-primary-element);
+			outline-offset: 1px;
 		}
 	}
 
@@ -161,6 +162,7 @@ $grid-image-size: 35px;
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 6px;
+		pointer-events: none;
 	}
 
 	&__app-image {
