@@ -101,7 +101,7 @@ $grid-image-size: 35px;
 	}
 
 	&__menu {
-		padding: 30px 15px 30px 30px;
+		padding: 30px;
 		overflow: hidden;
 	}
 
@@ -109,8 +109,8 @@ $grid-image-size: 35px;
 		display: grid;
 		grid-template-columns: repeat($rows-visible, 1fr);
 		gap: $grid-gap;
-		overflow-y: auto;
 		padding: $grid-padding;
+		justify-content: center;
 
 		// Custom scrollbar styling
 		&::-webkit-scrollbar {
